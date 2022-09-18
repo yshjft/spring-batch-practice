@@ -26,7 +26,7 @@ spring:
     hikari:
       jdbc-url: jdbc:mysql://localhost:3306/springbatch?useUnicode=true&characterEncoding=utf8
       username: root
-      password: pass
+      password: 980605
       driver-class-name: com.mysql.jdbc.Driver
   batch:
     jdbc:
