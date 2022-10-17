@@ -11,10 +11,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class DBJobConfiguration {
+public class JobConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
+    // 하나의 Job을 정의
     @Bean
     public Job job() {
         return jobBuilderFactory.get("job")
@@ -26,7 +27,7 @@ public class DBJobConfiguration {
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                .tasklet((contribution, chunkContext) -> {
+                .tasklet((stepContribution, chunkContext) -> {
                     System.out.println("step1 was executed");
                     return RepeatStatus.FINISHED;
                 })
@@ -36,7 +37,7 @@ public class DBJobConfiguration {
     @Bean
     public Step step2() {
         return stepBuilderFactory.get("step2")
-                .tasklet((contribution, chunkContext) -> {
+                .tasklet((stepContribution, chunkContext) -> {
                     System.out.println("step2 was executed");
                     return RepeatStatus.FINISHED;
                 })
