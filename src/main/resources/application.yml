@@ -31,3 +31,5 @@ spring:
   batch:
     jdbc:
       initialize-schema: always
+    job:
+      enabled: false # Spring Boot가 batch job을 자동으로 실행시키도록 할지 결정하는 필드
