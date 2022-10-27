@@ -31,5 +31,8 @@ spring:
   batch:
     jdbc:
       initialize-schema: always
+      # table-prefix: SYSTEM_
     job:
-      enabled: false
+      enabled: true
+      # names: batchJob1 # 하드코딩 방식
+      names: ${job.name:NONE} # --job.name=batchJob1 (만약 아무 것도 전달 안되면 NONE이라는 이름으로 수행)
